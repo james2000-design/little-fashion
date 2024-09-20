@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "custom-bg-color": "#140D27",
+        "dark-color": "#000000",
+      },
+      backgroundImage: {
+        "gradient-to-top-dark":
+          "linear-gradient(to top, var(--dark-color), transparent 90%)",
       },
     },
   },

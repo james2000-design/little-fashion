@@ -10,8 +10,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative">
-      <div className="w-full flex   items-center justify-between px-4 md:px-8 bg-white py-10 fixed">
+    <div className="relative ">
+      <div className="w-full flex z-10  items-center justify-between px-4 md:px-8 bg-white py-5 fixed">
         <div className="flex flex-grow items-center md:hidden">
           <div className="mr-4" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -39,7 +39,7 @@ const Navbar = () => {
           </span>
         </div>
         {isMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-md mt-2 md:hidden flex  flex-col items-start p-4 gap-4">
+          <div className="absolute top-full left-0 w-full bg-white shadow-md  md:hidden flex  flex-col items-start p-4 gap-4">
             <div className="text-gray-400">Home</div>
             <div className="text-gray-400">Story</div>
             <div className="text-gray-400">Product</div>

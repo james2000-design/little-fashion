@@ -4,11 +4,16 @@ import Home from "./components/slide-show/home";
 
 function App() {
   return (
-    <div className="relative">
-      <Navbar />
+    <>
+      <header>
+        <Navbar />
+      </header>
+
       <Home />
-      <Footer />
-    </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }
 
