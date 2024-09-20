@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,11 +25,21 @@ const Navbar = () => {
           </strong>
         </div>
         <div className="hidden md:flex flex-grow items-center gap-10">
-          <div className="text-gray-400">Home</div>
-          <div className="text-gray-400">Story</div>
-          <div className="text-gray-400">Product</div>
-          <div className="text-gray-400">FAQs</div>
-          <div className="text-gray-400">Contact</div>
+          <Link to={"/"}>
+            <div className="text-gray-400">Home</div>
+          </Link>
+          <Link to={"/stories"}>
+            <div className="text-gray-400">Story</div>
+          </Link>
+          <Link to={"/"}>
+            <div className="text-gray-400">Product</div>
+          </Link>
+          <Link to={"/"}>
+            <div className="text-gray-400">FAQs</div>
+          </Link>
+          <Link to={"/"}>
+            <div className="text-gray-400">Contact</div>
+          </Link>
         </div>
         <div className="flex items-center gap-8 md:ml-auto">
           <span>
@@ -40,11 +51,21 @@ const Navbar = () => {
         </div>
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-white shadow-md  md:hidden flex  flex-col items-start p-4 gap-4">
-            <div className="text-gray-400">Home</div>
-            <div className="text-gray-400">Story</div>
-            <div className="text-gray-400">Product</div>
-            <div className="text-gray-400">FAQs</div>
-            <div className="text-gray-400">Contact</div>
+            <Link to={"/"}>
+              <div className="text-gray-400">Home</div>
+            </Link>
+            <Link to={"/stories"}>
+              <div className="text-gray-400">Story</div>
+            </Link>
+            <Link to={"/"}>
+              <div className="text-gray-400">Product</div>
+            </Link>
+            <Link to={"/"}>
+              <div className="text-gray-400">FAQs</div>
+            </Link>
+            <Link to={"/"}>
+              <div className="text-gray-400">Contact</div>
+            </Link>
           </div>
         )}
       </div>

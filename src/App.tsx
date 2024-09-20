@@ -1,18 +1,16 @@
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
-import Home from "./components/slide-show/home";
+import HomePage from "./pages/homePage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Stories from "./pages/stories";
 
 function App() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-
-      <Home />
-      <footer>
-        <Footer />
-      </footer>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/stories" element={<Stories />} />
+        </Routes>
+      </Router>
     </>
   );
 }
