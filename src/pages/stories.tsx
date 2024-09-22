@@ -2,10 +2,11 @@ import Navbar from "../components/navbar";
 import picture1 from "../assets/images/header/businesspeople-meeting-office-working.jpg";
 import Team from "../components/team/team";
 import Footer from "../components/footer";
+import CarouselSwiper from "../components/carouselSwiper";
 
 const Stories = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <main className="pt-24 overflow-hidden">
         <section className="">
@@ -27,6 +28,9 @@ const Stories = () => {
 
         <section>
           <Team />
+        </section>
+        <section>
+          <CarouselSwiper />
         </section>
       </main>
       <Footer />

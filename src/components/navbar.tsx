@@ -31,10 +31,10 @@ const Navbar = () => {
           <Link to={"/stories"}>
             <div className="text-gray-400">Story</div>
           </Link>
-          <Link to={"/"}>
+          <Link to={"/products"}>
             <div className="text-gray-400">Product</div>
           </Link>
-          <Link to={"/"}>
+          <Link to={"/faqs"}>
             <div className="text-gray-400">FAQs</div>
           </Link>
           <Link to={"/"}>
@@ -57,10 +57,10 @@ const Navbar = () => {
             <Link to={"/stories"}>
               <div className="text-gray-400">Story</div>
             </Link>
-            <Link to={"/"}>
+            <Link to={"/products"}>
               <div className="text-gray-400">Product</div>
             </Link>
-            <Link to={"/"}>
+            <Link to={"/faqs"}>
               <div className="text-gray-400">FAQs</div>
             </Link>
             <Link to={"/"}>
