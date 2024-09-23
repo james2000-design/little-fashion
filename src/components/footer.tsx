@@ -2,7 +2,7 @@ import { FaYoutube, FaWhatsapp, FaInstagram, FaSkype } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-400 pt-10 pb-5 px-5">
+    <footer className="bg-black text-gray-400 py-[5rem] px-5">
       <div className="flex flex-wrap justify-between">
         <div className="flex flex-col gap-5 mb-5">
           <div className="font-extrabold">

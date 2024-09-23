@@ -37,17 +37,21 @@ const Navbar = () => {
           <Link to={"/faqs"}>
             <div className="text-gray-400">FAQs</div>
           </Link>
-          <Link to={"/"}>
+          <Link to={"/contact"}>
             <div className="text-gray-400">Contact</div>
           </Link>
         </div>
         <div className="flex items-center gap-8 md:ml-auto">
-          <span>
-            <FaUser size={20} />
-          </span>
-          <span>
-            <IoBagOutline size={20} />
-          </span>
+          <Link to={"/signInPage"}>
+            <span className="">
+              <FaUser size={20} />
+            </span>
+          </Link>
+          <Link to={"/sigIn"}>
+            <span>
+              <IoBagOutline size={20} />
+            </span>
+          </Link>
         </div>
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-white shadow-md  md:hidden flex  flex-col items-start p-4 gap-4">
@@ -63,7 +67,7 @@ const Navbar = () => {
             <Link to={"/faqs"}>
               <div className="text-gray-400">FAQs</div>
             </Link>
-            <Link to={"/"}>
+            <Link to={"/contact"}>
               <div className="text-gray-400">Contact</div>
             </Link>
           </div>
