@@ -64,7 +64,7 @@ const Products = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pt-[6rem] ">
         {" "}
         <div>
           <div className="lg:w-full md:w-[100%] px-10 py-[6rem] w-full flex  bg-[#f0f8ff] ">

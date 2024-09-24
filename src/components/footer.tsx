@@ -1,4 +1,5 @@
 import { FaYoutube, FaWhatsapp, FaInstagram, FaSkype } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,23 +14,41 @@ const Footer = () => {
             Copyright &#169; 2024
             <span className="font-bold">
               {" "}
-              <span className="hover:text-[#FF4400] ">Little</span> Fashion
+              <Link to="/">
+                <span className="hover:text-[#FF4400] cursor-pointer ">
+                  Little
+                </span>
+              </Link>{" "}
+              Fashion
             </span>
           </div>
           <div>
-            Designed by <span className="hover:text-[#FF4400] ">James</span>
+            Designed by{" "}
+            <span className="hover:text-[#FF4400] cursor-pointer ">James</span>
           </div>
         </div>
         <div className="flex pr-5 justify-between w-full md:w-[60%]">
           <div>
             <div className="text-white font-extrabold">SiteMap</div>
-            <div>About</div>
-            <div>Privacy Policy</div>
-            <div>Contact</div>
+            <Link to={"/stories"}>
+              {" "}
+              <div className="hover:text-white">About</div>
+            </Link>
+            <Link to={"/"}>
+              <div className="hover:text-white">Privacy Policy</div>
+            </Link>
+            <Link to={"/contact"}>
+              <div className="hover:text-white">Contact</div>
+            </Link>
           </div>
           <div>
-            <div>Products</div>
-            <div>FAQs</div>
+            <Link to={"/products"}>
+              <div className="hover:text-white">Products</div>
+            </Link>
+            <Link to={"/faqs"}>
+              {" "}
+              <div className="hover:text-white">FAQs</div>
+            </Link>
           </div>
           <div>
             <div className="text-white font-extrabold">Social</div>

@@ -12,6 +12,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -398,9 +399,11 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <div className=" uppercase underline pb-[10rem] font-bold text-gray-500 hover:text-[#FF4400] cursor-pointer  text-center ">
-          view all products
-        </div>
+        <Link to={"/products"}>
+          <div className=" uppercase underline pb-[10rem] font-bold text-gray-500 hover:text-[#FF4400] cursor-pointer  text-center ">
+            view all products
+          </div>
+        </Link>
       </div>
 
       <Footer />
