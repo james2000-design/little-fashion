@@ -10,6 +10,57 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 
 const Products = () => {
+  const featured = [
+    {
+      image: photo1,
+      type: "trending",
+      name: "Tree Pot",
+      description: "Original package design from house",
+      price: 25,
+    },
+
+    {
+      image: photo2,
+      type: "Discounted",
+      name: "Fashion set",
+      description: "Custome Design",
+      price: 35,
+    },
+
+    {
+      image: photo3,
+      type: "",
+      name: "Juice Drinks",
+      description: "Nature made another world",
+      price: 45,
+    },
+  ];
+
+  const trending = [
+    {
+      image: photo6,
+      type: "trending",
+      name: "Package",
+      description: "Original package design from house",
+      price: 50,
+    },
+
+    {
+      image: photo5,
+      type: "Discounted",
+      name: "Bottle",
+      description: "Package Design",
+      price: 100,
+    },
+
+    {
+      image: photo4,
+      type: "",
+      name: "Original",
+      description: "Original package design from house",
+      price: 200,
+    },
+  ];
   return (
     <>
       <Navbar />
@@ -29,143 +80,55 @@ const Products = () => {
               New arrival
             </div>
             <div className=" flex flex-wrap md:flex-nowrap lg:flex-nowrap md:justify-center justify-center  gap-8  mb-4 ">
-              <div>
-                <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo1}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
-
-                  <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                    <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
-                      New arrival
-                    </span>
-
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
+              {featured.map((feature, index) => (
+                <div key={index}>
+                  <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                    <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
+                      <img
+                        src={feature.image}
+                        alt=""
+                        className="w-full h-auto rounded object-contain"
                       />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5  py-7 ">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Tree pot
-                        </a>
-                      </h5>
-                      <p className="text-gray-500 font-thin">
-                        Original package design from house
-                      </p>
                     </div>
 
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $25
-                    </small>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="   relative bg-white transition-all duration-500 ease-out group  ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo2}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
+                    <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
+                      <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
+                        {feature.type}
+                      </span>
 
-                  <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                    <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
-                      Discounted Price
-                    </span>
-
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
-                      />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5 py-7">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Fashion Set
-                        </a>
-                      </h5>
-                      <p className="text-gray-500  font-thin">
-                        Custome Package
-                      </p>
+                      <a
+                        href="#"
+                        className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
+                      >
+                        <MdFavorite
+                          size={24}
+                          className="hover:text-[#FF4400] transition duration-300"
+                        />
+                      </a>
                     </div>
 
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $35
-                    </small>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="   relative bg-white transition-all duration-500 ease-out group ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo3}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
+                    <div className="flex justify-between px-5  py-7 ">
+                      <div>
+                        <h5 className="mb-0">
+                          <a
+                            href="/"
+                            className=" text-2xl font-bold text-black hover:underline"
+                          >
+                            {feature.name}
+                          </a>
+                        </h5>
+                        <p className="text-gray-500 font-thin">
+                          {feature.description}
+                        </p>
+                      </div>
 
-                  <div className="absolute top-0 right-0 left-[85%] m-5 flex justify-between">
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
-                      />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5 py-7">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Juice Drinks
-                        </a>
-                      </h5>
-                      <p className="text-gray-500 font-thin">
-                        Nature made another World
-                      </p>
+                      <small className="text-muted mt-auto mb-5 text-lg ">
+                        ${feature.price}
+                      </small>
                     </div>
-
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $45
-                    </small>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </section>
           {/* divider Trending */}
@@ -175,140 +138,55 @@ const Products = () => {
               Trending
             </div>
             <div className=" flex flex-wrap md:flex-nowrap lg:flex-nowrap md:justify-center justify-center  gap-8  mb-4 ">
-              <div>
-                <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo6}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
-
-                  <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                    <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
-                      Trending
-                    </span>
-
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
+              {trending.map((info, index) => (
+                <div key={index}>
+                  <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                    <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
+                      <img
+                        src={info.image}
+                        alt=""
+                        className="w-full h-auto rounded object-contain"
                       />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5  py-7 ">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Package
-                        </a>
-                      </h5>
-                      <p className="text-gray-500 font-thin">
-                        Original package design from house
-                      </p>
                     </div>
 
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $50
-                    </small>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="   relative bg-white transition-all duration-500 ease-out group  ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo5}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
+                    <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
+                      <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
+                        {info.type}
+                      </span>
 
-                  <div className="absolute top-0 right-0 left-[85%] m-5 flex justify-between">
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
-                      />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5 py-7">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Bottle
-                        </a>
-                      </h5>
-                      <p className="text-gray-500  font-thin">
-                        {" "}
-                        Package Design
-                      </p>
+                      <a
+                        href="#"
+                        className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
+                      >
+                        <MdFavorite
+                          size={24}
+                          className="hover:text-[#FF4400] transition duration-300"
+                        />
+                      </a>
                     </div>
 
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $100
-                    </small>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="   relative bg-white transition-all duration-500 ease-out group ">
-                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                    <img
-                      src={photo4}
-                      alt=""
-                      className="w-full h-auto rounded object-contain"
-                    />
-                  </div>
+                    <div className="flex justify-between px-5  py-7 ">
+                      <div>
+                        <h5 className="mb-0">
+                          <a
+                            href="/"
+                            className=" text-2xl font-bold text-black hover:underline"
+                          >
+                            {info.name}
+                          </a>
+                        </h5>
+                        <p className="text-gray-500 font-thin">
+                          {info.description}
+                        </p>
+                      </div>
 
-                  <div className="absolute top-0 right-0 left-[85%] m-5 flex justify-between">
-                    <a
-                      href="#"
-                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                    >
-                      <MdFavorite
-                        size={24}
-                        className="hover:text-[#FF4400] transition duration-300"
-                      />
-                    </a>
-                  </div>
-
-                  <div className="flex justify-between px-5 py-7">
-                    <div>
-                      <h5 className="mb-0">
-                        <a
-                          href="/"
-                          className=" text-2xl font-bold text-black hover:underline"
-                        >
-                          Medicine
-                        </a>
-                      </h5>
-                      <p className="text-gray-500 font-thin">
-                        Orginal design from house
-                      </p>
+                      <small className="text-muted mt-auto mb-5 text-lg ">
+                        ${info.price}
+                      </small>
                     </div>
-
-                    <small className="text-muted mt-auto mb-5 text-lg ">
-                      $200
-                    </small>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </section>
         </div>

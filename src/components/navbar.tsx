@@ -43,12 +43,12 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-8 md:ml-auto">
           <Link to={"/signInPage"}>
-            <span className="">
+            <span className=" hover:text-[#ff4400] ">
               <FaUser size={20} />
             </span>
           </Link>
-          <Link to={"/sigIn"}>
-            <span>
+          <Link to={"/cart"}>
+            <span className=" hover:text-[#ff4400] ">
               <IoBagOutline size={20} />
             </span>
           </Link>
