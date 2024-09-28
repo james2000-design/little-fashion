@@ -43,11 +43,14 @@ const Contact = () => {
             <div className="lg:w-[40%] md:w-[40%] sm:w-full w-full my-4 ">
               <FormControl className=" flex flex-col mx-4 gap-8 my-4">
                 <Input
+                  name="fullname"
+                  type="text"
                   placeholder="Full name"
                   className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
                 />
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
                   className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
                 />
@@ -55,6 +58,8 @@ const Contact = () => {
 
                 <Input
                   placeholder="Subject"
+                  type="text"
+                  name="subject"
                   className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
                 />
 

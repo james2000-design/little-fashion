@@ -8,12 +8,14 @@ import photo5 from "../assets/images/product/quokkabottles-kFc1_G1GvKA-unsplash.
 import photo6 from "../assets/images/product/team-fredi-8HRKoay8VJE-unsplash.jpeg";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
   const featured = [
     {
       image: photo1,
-      type: "trending",
+      type: "New Arrival",
       name: "Tree Pot",
       description: "Original package design from house",
       price: 25,
@@ -21,7 +23,7 @@ const Products = () => {
 
     {
       image: photo2,
-      type: "Discounted",
+      type: "Low Price",
       name: "Fashion set",
       description: "Custome Design",
       price: 35,
@@ -82,7 +84,10 @@ const Products = () => {
             <div className=" flex flex-wrap md:flex-nowrap lg:flex-nowrap md:justify-center justify-center  gap-8  mb-4 ">
               {featured.map((feature, index) => (
                 <div key={index}>
-                  <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                  <div
+                    onClick={() => navigate("/cart")}
+                    className="   w-full relative bg-white transition-all duration-500 ease-out group "
+                  >
                     <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
                       <img
                         src={feature.image}
@@ -92,7 +97,13 @@ const Products = () => {
                     </div>
 
                     <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                      <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
+                      <span
+                        className={`${
+                          feature.type !== ""
+                            ? "bg-gray-500 "
+                            : "bg-transparent"
+                        } text-white px-2 py-1 rounded-md`}
+                      >
                         {feature.type}
                       </span>
 
@@ -150,7 +161,11 @@ const Products = () => {
                     </div>
 
                     <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                      <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
+                      <span
+                        className={`${
+                          info.type !== "" ? "bg-gray-500 " : "bg-transparent"
+                        } text-white px-2 py-1 rounded-md`}
+                      >
                         {info.type}
                       </span>
 

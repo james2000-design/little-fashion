@@ -1,11 +1,43 @@
 import { Button, FormControl, FormErrorMessage, Input } from "@chakra-ui/react";
 import Footer from "../components/footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import backgroundImage from "../assets/images/slideshow/medium-shot-business-women-high-five.jpeg";
+import { useAuth } from "../context/storeContext";
+import { useState } from "react";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const { signup } = useAuth();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    try {
+      await signup(formData.name, formData.email, formData.password);
+      alert("Signed up successfully!");
+      navigate("/");
+    } catch (err) {
+      alert("Failed to sign up.");
+    }
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <div
@@ -35,39 +67,59 @@ const SignUp = () => {
                 <span className="px-2">OR</span>
                 <div className=" w-full border-[0.5px] border-gray-300 "></div>
               </div>
-              <FormControl
-                isRequired
-                alignSelf={"center"}
-                className="flex flex-col gap-8 w-full "
-              >
-                <Input
-                  type="email"
-                  placeholder="Email Address"
-                  className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
-                />
-                <Input
-                  required
-                  placeholder="password"
-                  className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
-                />
-                <FormErrorMessage>
-                  * shall include 0-9 a-z A-Z in 4 to 10 characters
-                </FormErrorMessage>
-                <Input
-                  required
-                  placeholder="password confirmation"
-                  className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
-                />
-                <Button
+              <form onSubmit={handleSubmit}>
+                <FormControl
+                  isRequired
                   alignSelf={"center"}
-                  className="text-white font-bold bg-black text-center w-[50%] p-4 rounded-xl hover:bg-[#FF4400] "
+                  className="flex flex-col gap-8 w-full "
                 >
-                  Send
-                </Button>
-              </FormControl>
+                  <Input
+                    type="text"
+                    name="name"
+                    onChange={handleChange}
+                    value={formData.name}
+                    placeholder="full name"
+                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                  />
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={formData.email}
+                    placeholder="Email Address"
+                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                  />
+                  <Input
+                    required
+                    onChange={handleChange}
+                    name="password"
+                    value={formData.password}
+                    placeholder="password"
+                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                  />
+                  <FormErrorMessage>
+                    * shall include 0-9 a-z A-Z in 4 to 10 characters
+                  </FormErrorMessage>
+                  <Input
+                    required
+                    onChange={handleChange}
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    placeholder="password confirmation"
+                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                  />
+                  <Button
+                    type="submit"
+                    alignSelf={"center"}
+                    className="text-white font-bold bg-black text-center w-[50%] p-4 rounded-xl hover:bg-[#FF4400] "
+                  >
+                    Send
+                  </Button>
+                </FormControl>
+              </form>
               <p className="text-gray-500 font-thin text-xl text-center">
                 Already have an account? Please
-                <Link to={"/SignInPage"}>
+                <Link to={"/register"}>
                   <span className="text-gray-500 hover:text-[#ff4400] pl-1 cursor-pointer ">
                     Sign In
                   </span>

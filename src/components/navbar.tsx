@@ -2,9 +2,12 @@ import { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/storeContext";
+import { IoMdLogOut } from "react-icons/io";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logout, isAuthenticated } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,11 +45,20 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex items-center gap-8 md:ml-auto">
-          <Link to={"/signInPage"}>
-            <span className=" hover:text-[#ff4400] ">
-              <FaUser size={20} />
-            </span>
-          </Link>
+          {isAuthenticated ? (
+            <Link to={"/"}>
+              <span onClick={logout} className=" hover:text-[#ff4400] ">
+                <IoMdLogOut size={20} />
+              </span>
+            </Link>
+          ) : (
+            <Link to={"/login"}>
+              <span className=" hover:text-[#ff4400] ">
+                <FaUser size={20} />
+              </span>
+            </Link>
+          )}
+
           <Link to={"/cart"}>
             <span className=" hover:text-[#ff4400] ">
               <IoBagOutline size={20} />

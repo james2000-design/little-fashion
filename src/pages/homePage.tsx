@@ -12,9 +12,10 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { MdFavorite } from "react-icons/md";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [Image2, Image3, Image];
   const titles = ["Cool Fashion", "New Design", "Talk to us"];
@@ -24,9 +25,9 @@ const Home = () => {
     "Tooplate is one of the best HTML CSS template websites for everyone.",
   ];
   const links = [
-    { href: "/", text: "Learn more about us" },
-    { href: "/", text: "Explore products" },
-    { href: "/", text: "Work with us" },
+    { href: "/stories", text: "Learn more about us" },
+    { href: "/products", text: "Explore products" },
+    { href: "/contact", text: "Work with us" },
   ];
 
   const tabs = [
@@ -46,7 +47,10 @@ const Home = () => {
               Since this HTML template is based on Boostrap 5 CSS library, you
               can feel free to add more components as you need.
             </p>
-            <button className="flex gap-2 items-center  text-l font-bold md:mt-[10rem] mt-4  text-gray-400 hover:text-[#FF4400] group ">
+            <button
+              onClick={() => navigate("/stories")}
+              className="flex gap-2 items-center  text-l font-bold md:mt-[10rem] mt-4  text-gray-400 hover:text-[#FF4400] group "
+            >
               Learn more About Us
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                 <FaArrowRightLong />
@@ -78,7 +82,10 @@ const Home = () => {
               {" "}
               Custom work includes branding, web design, UI/UX design.
             </p>
-            <button className="flex gap-2 items-center  text-l font-bold md:mt-[8rem] mt-8 text-gray-400 hover:text-[#FF4400] group ">
+            <button
+              onClick={() => navigate("/contact")}
+              className="flex gap-2 items-center  text-l font-bold md:mt-[8rem] mt-8 text-gray-400 hover:text-[#FF4400] group "
+            >
               Work with Us{" "}
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                 <FaArrowRightLong />
@@ -118,7 +125,10 @@ const Home = () => {
                 <span className="text-2xl font-bold">80%</span>
               </div>
 
-              <button className="flex gap-2 items-center  text-l font-bold md:mt-[8rem] mt-8 text-gray-400 hover:text-[#FF4400] group ">
+              <button
+                onClick={() => navigate("/products")}
+                className="flex gap-2 items-center  text-l font-bold md:mt-[8rem] mt-8 text-gray-400 hover:text-[#FF4400] group "
+              >
                 Explore Products
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                   <FaArrowRightLong />
@@ -128,6 +138,31 @@ const Home = () => {
           </div>
         </div>
       ),
+    },
+  ];
+  const featured = [
+    {
+      image: Image7,
+      type: "trending",
+      name: "Tree Pot",
+      description: "Original package design from house",
+      price: 25,
+    },
+
+    {
+      image: Image8,
+      type: "Discounted",
+      name: "Fashion set",
+      description: "Custome Design",
+      price: 35,
+    },
+
+    {
+      image: Image9,
+      type: "",
+      name: "Juice Drinks",
+      description: "Nature made another world",
+      price: 45,
     },
   ];
 
@@ -174,7 +209,7 @@ const Home = () => {
                         </p>
 
                         <button
-                          onClick={() => links[index].href}
+                          onClick={() => navigate(links[index].href)}
                           className={`bg-black text-white text-left md:text-2xl text-lg rounded-lg py-2 my-8 font-bold hover:bg-[#FF4400]  px-[32px]
                           
                          `}
@@ -246,7 +281,10 @@ const Home = () => {
                 Credits go to Unsplash and FreePik websites for images used in
                 this Little Fashion by Tooplate.
               </p>
-              <button className="flex gap-2 items-center  text-l font-bold  mt-8 mb-10 text-gray-400 hover:text-[#FF4400] group ">
+              <button
+                onClick={() => navigate("/products")}
+                className="flex gap-2 items-center  text-l font-bold  mt-8 mb-10 text-gray-400 hover:text-[#FF4400] group "
+              >
                 Explore Products
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                   <FaArrowRightLong />
@@ -262,141 +300,59 @@ const Home = () => {
             Featured Products
           </div>
           <div className=" flex flex-wrap md:flex-nowrap md:justify-center justify-center md:px-8 px-10 gap-8  mb-4 ">
-            <div>
-              <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
-                <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                  <img
-                    src={Image7}
-                    alt=""
-                    className="w-full h-auto rounded object-contain"
-                  />
-                </div>
-
-                <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                  <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
-                    New arrival
-                  </span>
-
-                  <a
-                    href="#"
-                    className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                  >
-                    <MdFavorite
-                      size={24}
-                      className="hover:text-[#FF4400] transition duration-300"
+            {featured.map((feature, index) => (
+              <div key={index}>
+                <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                  <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
+                    <img
+                      src={feature.image}
+                      alt=""
+                      className="w-full h-auto rounded object-contain"
                     />
-                  </a>
-                </div>
-
-                <div className="flex justify-between px-5  py-7 ">
-                  <div>
-                    <h5 className="mb-0">
-                      <a
-                        href="/"
-                        className=" text-2xl font-bold text-black hover:underline"
-                      >
-                        Tree pot
-                      </a>
-                    </h5>
-                    <p className="text-gray-500 font-thin">
-                      Original package design from house
-                    </p>
                   </div>
 
-                  <small className="text-muted mt-auto mb-5 text-lg ">
-                    $25
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="   relative bg-white transition-all duration-500 ease-out group  ">
-                <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                  <img
-                    src={Image8}
-                    alt=""
-                    className="w-full h-auto rounded object-contain"
-                  />
-                </div>
+                  <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
+                    <span
+                      className={`${
+                        feature.type !== "" ? "bg-gray-500 " : "bg-transparent"
+                      } text-white px-2 py-1 rounded-md`}
+                    >
+                      {feature.type}
+                    </span>
 
-                <div className="absolute top-0 right-0 left-0 m-5 flex justify-between">
-                  <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
-                    Low Price
-                  </span>
-
-                  <a
-                    href="#"
-                    className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                  >
-                    <MdFavorite
-                      size={24}
-                      className="hover:text-[#FF4400] transition duration-300"
-                    />
-                  </a>
-                </div>
-
-                <div className="flex justify-between px-5 py-7">
-                  <div>
-                    <h5 className="mb-0">
-                      <a
-                        href="/"
-                        className=" text-2xl font-bold text-black hover:underline"
-                      >
-                        Fashion Set
-                      </a>
-                    </h5>
-                    <p className="text-gray-500  font-thin">Custome Package</p>
+                    <a
+                      href="#"
+                      className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
+                    >
+                      <MdFavorite
+                        size={24}
+                        className="hover:text-[#FF4400] transition duration-300"
+                      />
+                    </a>
                   </div>
 
-                  <small className="text-muted mt-auto mb-5 text-lg ">
-                    $35
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="   relative bg-white transition-all duration-500 ease-out group ">
-                <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
-                  <img
-                    src={Image9}
-                    alt=""
-                    className="w-full h-auto rounded object-contain"
-                  />
-                </div>
+                  <div className="flex justify-between px-5  py-7 ">
+                    <div>
+                      <h5 className="mb-0">
+                        <a
+                          href="/"
+                          className=" text-2xl font-bold text-black hover:underline"
+                        >
+                          {feature.name}
+                        </a>
+                      </h5>
+                      <p className="text-gray-500 font-thin">
+                        {feature.description}
+                      </p>
+                    </div>
 
-                <div className="absolute top-0 right-0 left-[85%] m-5 flex justify-between">
-                  <a
-                    href="#"
-                    className="text-white bg-transparent  rounded-full hover:text-[#FF4400]  transition"
-                  >
-                    <MdFavorite
-                      size={24}
-                      className="hover:text-[#FF4400] transition duration-300"
-                    />
-                  </a>
-                </div>
-
-                <div className="flex justify-between px-5 py-7">
-                  <div>
-                    <h5 className="mb-0">
-                      <a
-                        href="/"
-                        className=" text-2xl font-bold text-black hover:underline"
-                      >
-                        Juice Drinks
-                      </a>
-                    </h5>
-                    <p className="text-gray-500 font-thin">
-                      Nature made another World
-                    </p>
+                    <small className="text-muted mt-auto mb-5 text-lg ">
+                      ${feature.price}
+                    </small>
                   </div>
-
-                  <small className="text-muted mt-auto mb-5 text-lg ">
-                    $45
-                  </small>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
         <Link to={"/products"}>

@@ -52,12 +52,12 @@ const Cart = () => {
           </div>
         </div>
 
-        <div className="   w-full  flex  flex-wrap md:flex-nowrap lg:flex-nowrap gap-8 md:px-8 px-10 py-[6rem] mb-4 justify-evenly bg-white transition-all duration-500 ease-out group ">
-          <div className="relative transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
+        <div className="   w-full  flex  flex-wrap md:flex-nowrap lg:flex-nowrap gap-8 md:px-8 px-10 py-[6rem] mb-4 justify-evenly  transition-all duration-500 ease-out group ">
+          <div className="relative  ">
             <img
               src={photo1}
               alt=""
-              className="w-full h-auto rounded object-contain"
+              className="w-full h-auto bg-none rounded object-cover"
             />
             <div className="absolute top-0 right-0 left-0 m-5 flex gap-10 justify-between">
               <span className="bg-gray-500 text-white px-2 py-1 rounded-md">
@@ -76,13 +76,8 @@ const Cart = () => {
           <div className="lg:w-[50%] md:w-[50%] sm:w-full w-full p-6 ">
             <div className="  flex justify-between items-center  py-7 ">
               <div>
-                <h5 className="mb-0">
-                  <a
-                    href="/"
-                    className=" text-2xl font-bold text-black hover:underline"
-                  >
-                    Tree pot
-                  </a>
+                <h5 className="mb-0 text-2xl font-bold text-black ">
+                  Tree pot
                 </h5>
                 <p className="text-gray-500 font-thin">
                   Original package design from house
