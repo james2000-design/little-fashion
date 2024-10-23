@@ -6,6 +6,7 @@ import { FaFacebook } from "react-icons/fa6";
 import backgroundImage from "../assets/images/slideshow/medium-shot-business-women-high-five.jpeg";
 import { useAuth } from "../context/storeContext";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -19,15 +20,15 @@ const SignUp = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!");
       return;
     }
     try {
       await signup(formData.name, formData.email, formData.password);
-      alert("Signed up successfully!");
+      toast.success("Signed up successfully!");
       navigate("/");
     } catch (err) {
-      alert("Failed to sign up.");
+      toast.error(`${err}`);
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +120,7 @@ const SignUp = () => {
               </form>
               <p className="text-gray-500 font-thin text-xl text-center">
                 Already have an account? Please
-                <Link to={"/register"}>
+                <Link to={"/login"}>
                   <span className="text-gray-500 hover:text-[#ff4400] pl-1 cursor-pointer ">
                     Sign In
                   </span>

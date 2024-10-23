@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/storeContext";
 import backgroundImage from "../assets/images/slideshow/medium-shot-business-women-high-five.jpeg";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const { login } = useAuth();
@@ -22,9 +23,10 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await login(formData.email, formData.password);
+      toast.success("Login Successfully");
       navigate("/");
     } catch (err) {
-      alert("Failed to login.");
+      toast.error("Failed to login.");
     }
   };
   return (
@@ -38,7 +40,7 @@ const SignIn = () => {
       >
         <main className="py-[3rem] ">
           <div className="flex justify-center w-full">
-            <div className="pb-[6rem] lg:w-[40%] md:w-[40%]  flex flex-col  w-full px-3  mx-4 gap-8 my-4 bg-white bg-opacity-80 rounded-lg ">
+            <div className="pb-[6rem] lg:w-[30%] md:w-[40%]  flex flex-col  w-full px-3  mx-4 gap-8 my-4 bg-white bg-opacity-80 rounded-xl ">
               <h1 className="text-center text-[3rem] font-bold ">Sign In</h1>
               <form onSubmit={handleSubmit}>
                 <FormControl

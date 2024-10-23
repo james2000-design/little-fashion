@@ -13,7 +13,6 @@ const ProtectedRoute = ({ redirectPath = "/login" }: ProtectedRouteProps) => {
     return <Navigate to={redirectPath} replace />;
   }
 
-  // Otherwise, render the children components (the protected content)
   return <Outlet />;
 };
 

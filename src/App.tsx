@@ -10,11 +10,13 @@ import CartPage from "./pages/cartPage";
 import Spinner from "./components/spinner";
 import ProtectedRoute from "./components/protectedRoute";
 import { AuthProvider } from "./context/storeContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <AuthProvider>
+        <Toaster position="top-center" reverseOrder={false} />
         <Router>
           <Spinner />
           <Routes>
