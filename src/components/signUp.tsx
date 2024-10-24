@@ -7,6 +7,7 @@ import backgroundImage from "../assets/images/slideshow/medium-shot-business-wom
 import { useAuth } from "../context/storeContext";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { AxiosError } from "axios";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -28,7 +29,16 @@ const SignUp = () => {
       toast.success("Signed up successfully!");
       navigate("/");
     } catch (err) {
-      toast.error(`${err}`);
+      const error = err as AxiosError;
+      if (error.response && error.response.data) {
+        const errorMessage = (error.response.data as { message?: string })
+          .message;
+        if (errorMessage) {
+          toast.error(errorMessage);
+        } else {
+          toast.error("Failed to register User");
+        }
+      }
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

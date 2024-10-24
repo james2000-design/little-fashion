@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/storeContext";
 import backgroundImage from "../assets/images/slideshow/medium-shot-business-women-high-five.jpeg";
 import React, { useState } from "react";
+import { AxiosError } from "axios";
+
 import toast from "react-hot-toast";
 
 const SignIn = () => {
@@ -26,7 +28,16 @@ const SignIn = () => {
       toast.success("Login Successfully");
       navigate("/");
     } catch (err) {
-      toast.error("Failed to login.");
+      const error = err as AxiosError;
+      if (error.response && error.response.data) {
+        const errorMessage = (error.response.data as { message?: string })
+          .message;
+        if (errorMessage) {
+          toast.error(errorMessage);
+        } else {
+          toast.error("Failed to login.");
+        }
+      }
     }
   };
   return (
