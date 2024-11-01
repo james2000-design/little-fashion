@@ -86,7 +86,7 @@ const Products = () => {
                 <div key={index}>
                   <div
                     onClick={() => navigate("/cart")}
-                    className="   w-full relative bg-white transition-all duration-500 ease-out group "
+                    className="   w-full relative bg-white transition-all duration-500 ease-out group cursor-pointer "
                   >
                     <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
                       <img
@@ -151,7 +151,10 @@ const Products = () => {
             <div className=" flex flex-wrap md:flex-nowrap lg:flex-nowrap md:justify-center justify-center  gap-8  mb-4 ">
               {trending.map((info, index) => (
                 <div key={index}>
-                  <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                  <div
+                    onClick={() => navigate("/cart")}
+                    className="   w-full relative bg-white transition-all duration-500 ease-out group cursor-pointer "
+                  >
                     <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
                       <img
                         src={info.image}

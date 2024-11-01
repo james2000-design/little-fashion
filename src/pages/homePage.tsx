@@ -302,7 +302,10 @@ const Home = () => {
           <div className=" flex flex-wrap md:flex-nowrap md:justify-center justify-center md:px-8 px-10 gap-8  mb-4 ">
             {featured.map((feature, index) => (
               <div key={index}>
-                <div className="   w-full relative bg-white transition-all duration-500 ease-out group ">
+                <div
+                  onClick={() => navigate("/products")}
+                  className="   w-full relative bg-white transition-all duration-500 ease-out group cursor-pointer "
+                >
                   <div className=" transition-all duration-500 ease-out  group-hover:shadow-2xl shadow-gray-500 ">
                     <img
                       src={feature.image}
