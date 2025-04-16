@@ -29,7 +29,7 @@ const SignIn = () => {
       navigate("/");
     } catch (err) {
       const error = err as AxiosError;
-      if (error.response && error.response.data) {
+      if (error?.response?.data) {
         const errorMessage = (error.response.data as { message?: string })
           .message;
         if (errorMessage) {
@@ -41,60 +41,58 @@ const SignIn = () => {
     }
   };
   return (
-    <>
-      <div
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <main className="py-[3rem] ">
-          <div className="flex justify-center w-full">
-            <div className="pb-[6rem] lg:w-[30%] md:w-[40%]  flex flex-col  w-full px-3  mx-4 gap-8 my-4 bg-white bg-opacity-80 rounded-xl ">
-              <h1 className="text-center text-[3rem] font-bold ">Sign In</h1>
-              <form onSubmit={handleSubmit}>
-                <FormControl
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <main className="py-[3rem] ">
+        <div className="flex justify-center w-full">
+          <div className="pb-[6rem] lg:w-[30%] md:w-[40%]  flex flex-col  w-full px-3  mx-4 gap-8 my-4 bg-white bg-opacity-80 rounded-xl ">
+            <h1 className="text-center text-[3rem] font-bold ">Sign In</h1>
+            <form onSubmit={handleSubmit}>
+              <FormControl
+                alignSelf={"center"}
+                className="flex flex-col gap-8 w-full "
+              >
+                <Input
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                  placeholder="email"
+                  className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                />
+                <Input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  placeholder="password"
+                  className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
+                />
+                <Button
                   alignSelf={"center"}
-                  className="flex flex-col gap-8 w-full "
+                  type="submit"
+                  className="text-white font-bold bg-black text-center w-[50%] p-4 rounded-xl hover:bg-[#FF4400] "
                 >
-                  <Input
-                    type="email"
-                    name="email"
-                    onChange={handleChange}
-                    placeholder="email"
-                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
-                  />
-                  <Input
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                    placeholder="password"
-                    className="border-[1px] border-gray-400 rounded-md p-2 focus:border-blue-200 focus:border-4 focus:outline-none"
-                  />
-                  <Button
-                    alignSelf={"center"}
-                    type="submit"
-                    className="text-white font-bold bg-black text-center w-[50%] p-4 rounded-xl hover:bg-[#FF4400] "
-                  >
-                    Send
-                  </Button>
-                </FormControl>
-              </form>
-              <p className="text-gray-500 font-thin text-xl text-center">
-                Don’t have an account?{" "}
-                <Link to={"/register"}>
-                  <span className="text-gray-500 hover:text-[#ff4400] cursor-pointer ">
-                    Create One
-                  </span>
-                </Link>
-              </p>
-            </div>
+                  Send
+                </Button>
+              </FormControl>
+            </form>
+            <p className="text-gray-500 font-thin text-xl text-center">
+              Don’t have an account?{" "}
+              <Link to={"/register"}>
+                <span className="text-gray-500 hover:text-[#ff4400] cursor-pointer ">
+                  Create One
+                </span>
+              </Link>
+            </p>
           </div>
-        </main>
-        <Footer />
-      </div>
-    </>
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

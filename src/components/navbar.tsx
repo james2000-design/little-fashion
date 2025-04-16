@@ -24,9 +24,9 @@ const Navbar = () => {
     <div className="relative ">
       <div className="w-full flex z-10 items-center justify-between px-4 md:px-8 bg-white py-5 fixed">
         <div className="flex flex-grow items-center md:hidden">
-          <div className="mr-4" onClick={toggleMenu}>
+          <button className="mr-4" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-          </div>
+          </button>
         </div>
         <div className="logo font-bold text-2xl flex flex-grow text-center ">
           <strong>
@@ -54,9 +54,9 @@ const Navbar = () => {
         <div className="flex items-center gap-8 md:ml-auto">
           {isAuthenticated ? (
             <Link to="/">
-              <span onClick={logout} className="hover:text-[#ff4400]">
+              <button onClick={logout} className="hover:text-[#ff4400]">
                 <IoMdLogOut size={20} />
-              </span>
+              </button>
             </Link>
           ) : (
             <Link to="/login">
